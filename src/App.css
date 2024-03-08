@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #df0d0d;
+}
+.container_contact {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center center;
+  align-items: center;
+  margin: auto;
+}
+.logo {
+  width: 12%;
+}
+.logo-h6 {
+  font-size: x-large;
+  font-weight: 700;
+  text-align: center;
+  text-size-adjust: 100%;
+  height: min-content;
+  margin: auto 0px auto 0px;
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 20%;
+  }
+}
+
+.nav-link {
+  color: black;
+  font-weight: 400;
+  font-size: x-large;
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  text-wrap: nowrap;
+}
+.nav-link:hover {
+  background-color: #701b1b83;
+  border-radius: 10px;
+  animation: 0.8s ease-in-out navHover;
+}
+.nav-link:active {
+  background-color: #4d131383;
+}
+.container-nav {
+  display: flex;
+  gap: 20px;
+}
+.containerhomes {
+  display: flex;
+  gap: 10px;
+  box-sizing: border-box;
+}
+.container_contact {
+  width: 100%;
+  display: flex;
+  margin: auto;
+}

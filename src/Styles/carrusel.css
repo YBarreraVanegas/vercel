@@ -1,0 +1,31 @@
+@media (min-width: 768px) {
+  /* ProductCarousel.css */
+  .custom-carousel-image {
+    object-fit: cover;
+    object-position: center;
+    max-height: 100%;
+  }
+}
+.custom-carousel-item {
+  position: relative;
+}
+
+.overlay-container {
+  position: relative;
+}
+
+.custom-carousel-image {
+  width: 100%;
+  filter: brightness(50%);
+  height: 35vh;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+}

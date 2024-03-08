@@ -1,0 +1,30 @@
+.container_home {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  z-index: -1;
+  width: 100%;
+  min-height: 50%;
+  max-height: 50%;
+}
+@media (max-width: 768px) {
+  .container_home {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+.container {
+  max-width: 95%;
+}
+.img_home {
+  height: 250px;
+}
+.products-title {
+  padding: 3%;
+}
+.card-link {
+  text-decoration: none;
+}

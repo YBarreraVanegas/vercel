@@ -1,0 +1,68 @@
+header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.home-body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center center;
+  align-items: center;
+  margin: auto;
+}
+.header-bacground {
+  --direction: -45deg;
+  position: relative;
+}
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: none;
+  z-index: -1;
+}
+.background {
+  background-image: url("/src/assets/campus.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+.foreground {
+  background-image: url("/src/assets/varios.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  mask-image: linear-gradient(
+    var(--direction),
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  mask-position: 50% 50%;
+  height: 100vh;
+}
+
+.title-background {
+  color: rgba(5, 103, 121, 0.842);
+  font-size: 4em;
+  text-wrap: balance;
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+@media (max-width: 768px) {
+  .foreground {
+    mask-image: none;
+    background-image: url("/src/assets/fone.webp");
+  }
+  .title-background {
+    font-size: xxx-large;
+    padding: 5px;
+  }
+}
