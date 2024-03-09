@@ -6,7 +6,9 @@ import axios from "axios";
 const DeleteProduct = ({ productId, onDelete }) => {
   const deleteProductMutation = useMutation(
     async () => {
-      await axios.delete(`http://localhost:3000/products/${productId}`);
+      await axios.delete(
+        `https://backend-websore.vercel.app/products/${productId}`
+      );
     },
     {
       onSuccess: () => {

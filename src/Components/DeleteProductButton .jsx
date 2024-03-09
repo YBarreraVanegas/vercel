@@ -4,7 +4,7 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 const DeleteProductButton = ({ productId, onDelete }) => {
-  const url = `http://localhost:3000/products/${productId}`;
+  const url = `https://backend-websore.vercel.app/products/${productId}`;
 
   const deleteProductMutation = useMutation(
     async () => {

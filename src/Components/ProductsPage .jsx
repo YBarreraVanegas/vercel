@@ -3,7 +3,7 @@ import ProductCarousel from "./Carrusel";
 import "../Styles/Products.css";
 
 const ProductsPage = () => {
-  const url = "http://localhost:3000/products";
+  const url = "https://backend-websore.vercel.app/products";
   const { data, loading, error } = useGetData(url);
 
   if (loading) {
