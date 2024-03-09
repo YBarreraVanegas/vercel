@@ -46,6 +46,7 @@ const CreateProduct = () => {
     }
 
     createProductMutation.mutate(productData);
+    console.log(productData);
   };
 
   const handleInputChange = (field, e) => {

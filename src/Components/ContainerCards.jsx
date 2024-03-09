@@ -3,7 +3,10 @@ import Card from "./Card";
 import "../Styles/Products.css";
 import { useGetData } from "./useFetchs";
 const ContainerCards = () => {
-  const url = "http://localhost:3000/products";
+  const url =
+    typeof process !== "undefined" && process.env.POSTGRES_URL_URL
+      ? process.env.POSTGRES_URL_URL
+      : "https://backend-websore.vercel.app/products";
 
   const { data, loading, error } = useGetData(url);
 
