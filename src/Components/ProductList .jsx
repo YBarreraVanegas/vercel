@@ -6,7 +6,7 @@ import { useGetData } from "./useFetchs";
 
 const ProductList = ({ onProductSelect }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const url = "http://localhost:3000/products";
+  const url = "https://backend-websore.vercel.app/products";
 
   const { data: products = [], loading, error, refetch } = useGetData(url);
 
