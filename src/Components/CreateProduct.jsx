@@ -11,7 +11,7 @@ const CreateProduct = () => {
   const [imagen, setImagen] = useState(null);
   const [descripcion, setDescripcion] = useState("");
 
-  const url = "http://localhost:3000/products";
+  const url = "https://backend-websore.vercel.app/products";
 
   const createProductMutation = useMutation(
     async (productData) => {
