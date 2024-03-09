@@ -5,7 +5,10 @@ import ProductImage from "./ProductImage";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const url = `http://localhost:3000/products/${id}`;
+  const url =
+    typeof process !== "undefined" && process.env.POSTGRES_URL_URL
+      ? process.env.POSTGRES_URL_URL
+      : `https://backend-websore.vercel.app/products/${id}`;
 
   const { data, loading, error } = useGetData(url);
 

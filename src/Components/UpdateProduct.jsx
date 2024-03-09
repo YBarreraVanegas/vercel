@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const UpdateProduct = ({ selectedProduct }) => {
   const { id: productId } = selectedProduct;
 
-  const url = `http://localhost:3000/products/${productId}`;
+  const url = `https://backend-websore.vercel.app/products/${productId}`;
 
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");

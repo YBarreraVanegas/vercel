@@ -59,7 +59,7 @@ function NavbarComponent() {
             <Nav className=" container-nav justify-content-end flex-grow-1 pe-3 ">
               <Nav.Link
                 as={RouterLink}
-                to="/#inicio"
+                to="/dasboard"
                 onClick={() => handleLinkClick("home")}
               >
                 Inicio
