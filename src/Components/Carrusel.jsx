@@ -1,5 +1,4 @@
 import React from "react";
-import ProductImage from "./ProductImage";
 import { Carousel } from "react-bootstrap";
 import "../Styles/carrusel.css";
 import { Link } from "react-router-dom";
@@ -32,10 +31,14 @@ const ProductCarousel = ({ products }) => {
           <div className="overlay-container">
             <Link to={`/product/${product.id}`} className="card-link">
               <div className="custom-carousel-image">
-                <ProductImage
-                  imagenData={product.imagen?.data}
-                  altText={product.nombre}
-                />
+                {product.imagen && (
+                  <img
+                    src={product.imagen}
+                    width="100%"
+                    alt={product.nombre}
+                    className="carousel-image"
+                  />
+                )}
               </div>
             </Link>
             <div className="overlay-text">
