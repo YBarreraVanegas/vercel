@@ -1,8 +1,8 @@
+import React, { useState } from "react";
+import CreateProductForm from "./CreateProductForm";
+import CreateProductMessages from "./CreateProductMessages";
 import { useMutation } from "react-query";
 import axios from "axios";
-import CreateProductForm from "./CreateProductForm";
-import CreateProductMessages from "./CreateProductMessages ";
-import { useState } from "react";
 
 const CreateProduct = () => {
   const [nombre, setNombre] = useState("");
@@ -11,10 +11,10 @@ const CreateProduct = () => {
   const [imagen, setImagen] = useState(null);
   const [descripcion, setDescripcion] = useState("");
 
-  const url = "https://backend-websore.vercel.app/products";
-
   const createProductMutation = useMutation(
     async (productData) => {
+      const url = `${import.meta.env.VITE_URL}/products`;
+
       try {
         const response = await axios.post(url, productData);
         return response.data;
@@ -24,10 +24,10 @@ const CreateProduct = () => {
     },
     {
       onSuccess: () => {
-        console.log("Poroduct created successfully!");
+        console.log("Producto creado exitosamente");
       },
       onError: (error) => {
-        console.error("Error creating product", error);
+        console.error("Error al crear el producto", error);
       },
     }
   );
@@ -40,13 +40,11 @@ const CreateProduct = () => {
     productData.append("precio", precio);
     productData.append("cantidad", cantidad);
     productData.append("descripcion", descripcion);
-
     if (imagen) {
       productData.append("imagen", imagen);
     }
 
     createProductMutation.mutate(productData);
-    console.log(productData);
   };
 
   const handleInputChange = (field, e) => {
@@ -71,6 +69,27 @@ const CreateProduct = () => {
 
   const handleFileChange = (e) => {
     setImagen(e.target.files[0]);
+  };
+
+  // Función para convertir la imagen a base64
+  const convertImageToBase64 = (image) => {
+    return new Promise((resolve, reject) => {
+      if (!image) {
+        resolve(null);
+      }
+
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+
+      reader.onload = () => {
+        const base64String = reader.result.split(",")[1];
+        resolve(base64String);
+      };
+
+      reader.onerror = (error) => {
+        reject(error);
+      };
+    });
   };
 
   return (

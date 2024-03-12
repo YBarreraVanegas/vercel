@@ -4,11 +4,10 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 const DeleteProduct = ({ productId, onDelete }) => {
+  const url = `${import.meta.env.VITE_URL}/products/${productId}`;
   const deleteProductMutation = useMutation(
     async () => {
-      await axios.delete(
-        `https://backend-websore.vercel.app/products/${productId}`
-      );
+      await axios.delete(url);
     },
     {
       onSuccess: () => {

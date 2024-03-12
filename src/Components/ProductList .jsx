@@ -6,10 +6,7 @@ import { useGetData } from "./useFetchs";
 
 const ProductList = ({ onProductSelect }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const url =
-    typeof process !== "undefined" && process.env.POSTGRES_URL_URL
-      ? process.env.POSTGRES_URL_URL
-      : "https://backend-websore.vercel.app/products";
+  const url = `${import.meta.env.VITE_URL}/products`;
 
   const { data: products = [], loading, error, refetch } = useGetData(url);
 

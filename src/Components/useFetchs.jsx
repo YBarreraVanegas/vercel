@@ -8,15 +8,11 @@ export const useGetData = (url) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(url);
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
-      } else {
-        console.error("Error fetching the list of products");
-      }
+      const response = await axios.get(url);
+      setData(response.data);
     } catch (error) {
       console.error("Network error:", error);
+      setError(error);
     } finally {
       setLoading(false);
     }

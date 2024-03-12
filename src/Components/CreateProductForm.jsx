@@ -12,7 +12,11 @@ const CreateProductForm = ({
   isLoading,
 }) => {
   return (
-    <form onSubmit={onSubmit} className="product-form">
+    <form
+      onSubmit={onSubmit}
+      className="product-form"
+      encType="multipart/form-data"
+    >
       <div className="product-form-section">
         <label htmlFor="nombre">Nombre:</label>
         <input
@@ -26,7 +30,7 @@ const CreateProductForm = ({
       <div className="product-form-section">
         <label htmlFor="precio">Precio:</label>
         <input
-          type="text"
+          type="number"
           className="product-form-input"
           id="precio"
           value={precio}
@@ -36,7 +40,7 @@ const CreateProductForm = ({
       <div className="product-form-section">
         <label htmlFor="cantidad">Cantidad:</label>
         <input
-          type="text"
+          type="number"
           id="cantidad"
           className="product-form-input"
           value={cantidad}
