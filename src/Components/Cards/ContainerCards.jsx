@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import "../../Styles/Products.css";
 import { useGetData } from "../useFetchs";
+import { Link } from "react-router-dom";
 
 const ContainerCards = () => {
   const url = `${import.meta.env.VITE_URL}/products`;
@@ -20,9 +21,13 @@ const ContainerCards = () => {
       <section className="container_home">
         {Array.isArray(data) &&
           data.map((product) => (
-            <React.Fragment key={product.id}>
+            <Link
+              to={`/product/${product.id}`}
+              className="card-link"
+              key={product.id}
+            >
               <Card product={product} />
-            </React.Fragment>
+            </Link>
           ))}
       </section>
     </div>

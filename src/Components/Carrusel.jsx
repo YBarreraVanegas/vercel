@@ -26,28 +26,35 @@ const ProductCarousel = ({ products }) => {
 
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
-      {repeatedProducts.map((product, idx) => (
-        <Carousel.Item key={idx} className="custom-carousel-item">
-          <div className="overlay-container">
-            <Link to={`/product/${product.id}`} className="card-link">
-              <div className="custom-carousel-image">
-                {product.imagen && (
-                  <img
-                    src={product.imagen}
-                    width="100%"
-                    alt={product.nombre}
-                    className="carousel-image"
-                  />
-                )}
+      {repeatedProducts.map((product, idx) => {
+        const [firstImage] = product.imagen
+          .replace(/[{""}]/g, "")
+          .split(",")
+          .map((img) => img.trim());
+
+        return (
+          <Carousel.Item key={idx} className="custom-carousel-item">
+            <div className="overlay-container">
+              <Link to={`/product/${product.id}`} className="card-link">
+                <div className="custom-carousel-image">
+                  {firstImage && (
+                    <img
+                      src={firstImage}
+                      alt={product.nombre}
+                      className="card-image"
+                      width={"100%"}
+                    />
+                  )}
+                </div>
+              </Link>
+              <div className="overlay-text">
+                <h3>{product.nombre}</h3>
+                <p>Precio: {product.precio}$</p>
               </div>
-            </Link>
-            <div className="overlay-text">
-              <h3>{product.nombre}</h3>
-              <p>Precio: {product.precio}$</p>
             </div>
-          </div>
-        </Carousel.Item>
-      ))}
+          </Carousel.Item>
+        );
+      })}
     </Carousel>
   );
 };

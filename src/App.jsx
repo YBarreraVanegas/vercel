@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import HomeView from "./Views/HomeView";
 import Dashboard from "./Components/Dashboard";
-import ProductDetail from "./Components/ProductDetail ";
+import ProductDetail from "./Components/ProducDetail/ProductDetail ";
 
 function App() {
   return (

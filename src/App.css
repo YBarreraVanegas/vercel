@@ -57,3 +57,11 @@
   display: flex;
   margin: auto;
 }
+.container-detail {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+.h2-detail {
+  text-align: center;
+}
