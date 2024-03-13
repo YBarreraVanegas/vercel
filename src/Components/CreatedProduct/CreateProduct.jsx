@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CreateProductForm from "./CreateProductForm";
 import CreateProductMessages from "./CreateProductMessages";
 import { useMutation } from "react-query";
@@ -8,7 +8,7 @@ const CreateProduct = () => {
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
   const [cantidad, setCantidad] = useState("");
-  const [imagen, setImagen] = useState(null);
+  const [imagen, setImagen] = useState([]);
   const [descripcion, setDescripcion] = useState("");
 
   const createProductMutation = useMutation(
@@ -40,8 +40,10 @@ const CreateProduct = () => {
     productData.append("precio", precio);
     productData.append("cantidad", cantidad);
     productData.append("descripcion", descripcion);
-    if (imagen) {
-      productData.append("imagen", imagen);
+
+    // Añadir las imágenes al FormData
+    for (let i = 0; i < imagen.length; i++) {
+      productData.append(`imagen`, imagen[i]);
     }
 
     createProductMutation.mutate(productData);
@@ -68,28 +70,9 @@ const CreateProduct = () => {
   };
 
   const handleFileChange = (e) => {
-    setImagen(e.target.files[0]);
-  };
-
-  // Función para convertir la imagen a base64
-  const convertImageToBase64 = (image) => {
-    return new Promise((resolve, reject) => {
-      if (!image) {
-        resolve(null);
-      }
-
-      const reader = new FileReader();
-      reader.readAsDataURL(image);
-
-      reader.onload = () => {
-        const base64String = reader.result.split(",")[1];
-        resolve(base64String);
-      };
-
-      reader.onerror = (error) => {
-        reject(error);
-      };
-    });
+    // Recuperar todas las imágenes del input de archivo
+    const newImagen = Array.from(e.target.files);
+    setImagen(newImagen);
   };
 
   return (
@@ -99,7 +82,7 @@ const CreateProduct = () => {
         nombre={nombre}
         precio={precio}
         cantidad={cantidad}
-        imagen={imagen}
+        imagen={imagen} // Pasar las imágenes al formulario
         descripcion={descripcion}
         onSubmit={handleSubmit}
         onInputChange={handleInputChange}

@@ -1,6 +1,4 @@
-import React from "react";
-
-const CreateProductForm = ({
+const UpdateProductForm = ({
   nombre,
   precio,
   cantidad,
@@ -12,64 +10,57 @@ const CreateProductForm = ({
   isLoading,
 }) => {
   return (
-    <form
-      onSubmit={onSubmit}
-      className="product-form"
-      encType="multipart/form-data"
-    >
-      <div className="product-form-section">
+    <form onSubmit={onSubmit} encType="multipart/form-data">
+      <div>
         <label htmlFor="nombre">Nombre:</label>
         <input
           type="text"
           id="nombre"
+          name="nombre"
           value={nombre}
-          className="product-form-input"
           onChange={(e) => onInputChange("nombre", e)}
         />
       </div>
-      <div className="product-form-section">
+      <div>
         <label htmlFor="precio">Precio:</label>
         <input
           type="number"
-          className="product-form-input"
           id="precio"
+          name="precio"
           value={precio}
           onChange={(e) => onInputChange("precio", e)}
         />
       </div>
-      <div className="product-form-section">
+      <div>
         <label htmlFor="cantidad">Cantidad:</label>
         <input
           type="number"
           id="cantidad"
-          className="product-form-input"
+          name="cantidad"
           value={cantidad}
           onChange={(e) => onInputChange("cantidad", e)}
         />
       </div>
-      <div className="product-form-section">
+      <div>
         <label htmlFor="imagen">Imagen:</label>
-        <input
-          type="file"
-          id="imagen"
-          onChange={onFileChange}
-          className="product-form-input-imagen"
-        />
+        <input type="file" id="imagen" name="imagen" onChange={onFileChange} />
       </div>
-      <div className="product-form-section">
+      <div>
         <label htmlFor="descripcion">Descripción:</label>
         <textarea
           id="descripcion"
+          name="descripcion"
           value={descripcion}
-          className="product-form-textarea"
           onChange={(e) => onInputChange("descripcion", e)}
         />
       </div>
-      <button type="submit" disabled={isLoading} className="button">
-        {isLoading ? "Creando..." : "Crear Producto"}
-      </button>
+      <div>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Actualizando..." : "Actualizar Producto"}
+        </button>
+      </div>
     </form>
   );
 };
 
-export default CreateProductForm;
+export default UpdateProductForm;

@@ -4,7 +4,7 @@ const CreateProductMessages = ({ isError, isSuccess, isLoading, error }) => {
       {isError && (
         <p>
           Error al crear el producto:{" "}
-          {error.response?.data?.error || "Error desconocido."}
+          {error.response?.data?.error || error.message || "Error desconocido."}
         </p>
       )}
       {isSuccess && (

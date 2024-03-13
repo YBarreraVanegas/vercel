@@ -1,6 +1,3 @@
-// UpdateProductMessages.jsx
-import React from "react";
-
 const UpdateProductMessages = ({ isError, isSuccess, isLoading, error }) => {
   return (
     <div>

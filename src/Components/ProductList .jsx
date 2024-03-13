@@ -1,6 +1,5 @@
-// ProductList.js
 import { useState } from "react";
-import UpdateProduct from "./UpdateProduct";
+import UpdateProduct from "./UpdateProduct/UpdateProduct";
 import DeleteProductButton from "./DeleteProductButton ";
 import { useGetData } from "./useFetchs";
 

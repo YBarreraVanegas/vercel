@@ -1,4 +1,4 @@
-const UpdateProductForm = ({
+const CreateProductForm = ({
   nombre,
   precio,
   cantidad,
@@ -10,57 +10,65 @@ const UpdateProductForm = ({
   isLoading,
 }) => {
   return (
-    <form onSubmit={onSubmit}>
-      <div>
+    <form
+      onSubmit={onSubmit}
+      className="product-form"
+      encType="multipart/form-data"
+    >
+      <div className="product-form-section">
         <label htmlFor="nombre">Nombre:</label>
         <input
           type="text"
           id="nombre"
-          name="nombre"
           value={nombre}
+          className="product-form-input"
           onChange={(e) => onInputChange("nombre", e)}
         />
       </div>
-      <div>
+      <div className="product-form-section">
         <label htmlFor="precio">Precio:</label>
         <input
-          type="text"
+          type="number"
+          className="product-form-input"
           id="precio"
-          name="precio"
           value={precio}
           onChange={(e) => onInputChange("precio", e)}
         />
       </div>
-      <div>
+      <div className="product-form-section">
         <label htmlFor="cantidad">Cantidad:</label>
         <input
-          type="text"
+          type="number"
           id="cantidad"
-          name="cantidad"
+          className="product-form-input"
           value={cantidad}
           onChange={(e) => onInputChange("cantidad", e)}
         />
       </div>
-      <div>
+      <div className="product-form-section">
         <label htmlFor="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" onChange={onFileChange} />
+        <input
+          type="file"
+          id="imagen"
+          onChange={onFileChange} // Ajustado para manejar múltiples imágenes
+          className="product-form-input-imagen"
+          multiple // Permite la selección de múltiples archivos
+        />
       </div>
-      <div>
+      <div className="product-form-section">
         <label htmlFor="descripcion">Descripción:</label>
         <textarea
           id="descripcion"
-          name="descripcion"
           value={descripcion}
+          className="product-form-textarea"
           onChange={(e) => onInputChange("descripcion", e)}
         />
       </div>
-      <div>
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Actualizando..." : "Actualizar Producto"}
-        </button>
-      </div>
+      <button type="submit" disabled={isLoading} className="button">
+        {isLoading ? "Creando..." : "Crear Producto"}
+      </button>
     </form>
   );
 };
 
-export default UpdateProductForm;
+export default CreateProductForm;

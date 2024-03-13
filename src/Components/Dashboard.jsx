@@ -1,7 +1,7 @@
 // Dashboard.js
 import { useState } from "react";
-import CreateProduct from "./CreateProduct";
-import UpdateProduct from "./UpdateProduct";
+import CreateProduct from "./CreatedProduct/CreateProduct";
+import UpdateProduct from "./UpdateProduct/UpdateProduct";
 import ProductList from "./ProductList ";
 import DeleteProduct from "./DeleteProduct "; // Importa el componente de eliminación
 

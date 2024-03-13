@@ -1,5 +1,5 @@
 import About from "../Components/About";
-import ContainerCards from "../Components/ContainerCards";
+import ContainerCards from "../Components/Cards/ContainerCards";
 import Home from "../Components/Home";
 import Contact from "../Components/Contact";
 import BotonWathsapp from "../Components/BotonWathsapp";

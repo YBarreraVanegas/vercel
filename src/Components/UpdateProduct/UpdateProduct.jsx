@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
+import UpdateProductForm from "./UpdateProductForm";
+import UpdateProductMessages from "./UpdateProductMessages";
 import { useMutation } from "react-query";
 import axios from "axios";
-import UpdateProductForm from "./UpdateProductForm ";
-import UpdateProductMessages from "./UpdateProductMessages ";
-import { useEffect, useState } from "react";
 
-const UpdateProduct = ({ selectedProduct }) => {
+const UpdateProduct = ({ selectedProduct, clearSelectedProduct }) => {
   const { id: productId } = selectedProduct;
 
   const url = `${import.meta.env.VITE_URL}/products/${productId}`;
@@ -26,10 +26,11 @@ const UpdateProduct = ({ selectedProduct }) => {
     },
     {
       onSuccess: () => {
-        console.log("Product updated successfully!");
+        console.log("Producto actualizado exitosamente");
+        clearSelectedProduct(); // Limpiar el producto seleccionado después de la actualización
       },
       onError: (error) => {
-        console.error("Error updating product", error);
+        console.error("Error al actualizar el producto", error);
       },
     }
   );
@@ -44,10 +45,11 @@ const UpdateProduct = ({ selectedProduct }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const precioNumber = parseFloat(precio);
 
     const productData = new FormData();
     productData.append("nombre", nombre);
-    productData.append("precio", precio);
+    productData.append("precio", precioNumber);
     productData.append("cantidad", cantidad);
     productData.append("descripcion", descripcion);
 
@@ -60,7 +62,10 @@ const UpdateProduct = ({ selectedProduct }) => {
       Object.fromEntries(productData.entries())
     );
 
-    updateProductMutation.mutate(productData);
+    updateProductMutation.mutate(productData, {
+      // Pasar la URL correcta con el productId
+      url: `${import.meta.env.VITE_URL}/products/${productId}`,
+    });
   };
 
   const handleInputChange = (field, e) => {
@@ -87,6 +92,17 @@ const UpdateProduct = ({ selectedProduct }) => {
     setImagen(e.target.files[0]);
   };
 
+  const handleCancel = () => {
+    // Restablecer los campos del formulario
+    setNombre(selectedProduct.nombre || "");
+    setPrecio(selectedProduct.precio || "");
+    setCantidad(selectedProduct.cantidad || "");
+    setDescripcion(selectedProduct.descripcion || "");
+    setImagen(null);
+    // Deseleccionar el producto
+    clearSelectedProduct();
+  };
+
   return (
     <div>
       <h2>Actualizar Producto</h2>
@@ -101,6 +117,7 @@ const UpdateProduct = ({ selectedProduct }) => {
         onFileChange={handleFileChange}
         isLoading={updateProductMutation.isLoading}
       />
+      <button onClick={handleCancel}>Cancelar</button>
       <UpdateProductMessages
         isError={updateProductMutation.isError}
         isSuccess={updateProductMutation.isSuccess}
