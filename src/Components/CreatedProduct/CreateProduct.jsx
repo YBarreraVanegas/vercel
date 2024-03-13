@@ -3,6 +3,7 @@ import CreateProductForm from "./CreateProductForm";
 import CreateProductMessages from "./CreateProductMessages";
 import { useMutation } from "react-query";
 import axios from "axios";
+import imageCompression from "browser-image-compression";
 
 const CreateProduct = () => {
   const [nombre, setNombre] = useState("");
@@ -35,15 +36,30 @@ const CreateProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const compressedImages = await Promise.all(
+      imagen.map(async (image) => {
+        try {
+          const compressedImage = await imageCompression(image, {
+            maxSizeMB: 0.5, // Establece el tamaño máximo en MB
+            maxWidthOrHeight: 1920, // Establece el ancho o alto máximo
+          });
+          return compressedImage;
+        } catch (error) {
+          console.error("Error al comprimir la imagen", error);
+          return image; // Si hay un error, se envía la imagen sin comprimir
+        }
+      })
+    );
+
     const productData = new FormData();
     productData.append("nombre", nombre);
     productData.append("precio", precio);
     productData.append("cantidad", cantidad);
     productData.append("descripcion", descripcion);
 
-    // Añadir las imágenes al FormData
-    for (let i = 0; i < imagen.length; i++) {
-      productData.append(`imagen`, imagen[i]);
+    // Añadir las imágenes comprimidas al FormData
+    for (let i = 0; i < compressedImages.length; i++) {
+      productData.append(`imagen`, compressedImages[i]);
     }
 
     createProductMutation.mutate(productData);
