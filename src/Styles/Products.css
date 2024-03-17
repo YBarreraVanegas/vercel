@@ -8,9 +8,9 @@
 .card {
   z-index: -1;
   width: 100%;
-  min-height: 50%;
-  max-height: 50%;
+  border-radius: 10px;
 }
+
 @media (max-width: 768px) {
   .container_home {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -27,4 +27,8 @@
 }
 .card-link {
   text-decoration: none;
+}
+.card-image {
+  height: 300px;
+  border-radius: 10px 10px 0px 0px;
 }

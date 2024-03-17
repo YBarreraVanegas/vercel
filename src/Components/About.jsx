@@ -1,5 +1,5 @@
-import "../Styles/About.css";
-import video from "../assets/video.mp4";
+import '../Styles/About.css'
+import video from '../assets/video.mp4'
 
 function Contact() {
   return (
@@ -9,17 +9,14 @@ function Contact() {
           <h1>Sobre Nosotros</h1>
         </div>
         <p className="text-p">
-          Desde nuestra fundación en Bogotá en 2010, Tres Leones ha evolucionado
-          como una destacada fábrica de calzado deportivo 100% colombiano. Con
-          más de 14 años de experiencia, nos especializamos en crear el estilo
-          deseado de la mejor manera posible y con los mejores materiales.
-          Nuestra misión es clara: ofrecer productos de la más alta calidad a
-          precios competitivos. Respaldados por los mejores artesanos y
-          materiales, nos comprometemos a proporcionar calzado duradero y
-          cómodo, fusionando la tradición artesanal con la excelencia
-          contemporánea. En cada par, reflejamos no solo nuestro compromiso con
-          la fabricación de calzado, sino también nuestro orgullo por ser una
-          parte integral de la rica herencia colombiana.
+          Tres Leones, fundada en Bogotá en 2010, es una destacada fábrica de
+          calzado deportivo 100% colombiano con más de 14 años de experiencia.
+          Nos especializamos en crear estilos deseados con los mejores
+          materiales y a precios competitivos. Nuestra misión es ofrecer
+          productos de alta calidad, respaldados por artesanos y materiales de
+          primera, fusionando tradición artesanal y excelencia contemporánea.
+          Cada par refleja nuestro compromiso y orgullo por nuestra herencia
+          colombiana.
         </p>
       </div>
       <div className="local-video-about">
@@ -29,7 +26,7 @@ function Contact() {
         </video>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

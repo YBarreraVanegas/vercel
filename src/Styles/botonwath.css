@@ -2,9 +2,8 @@
   width: auto;
   height: auto;
   position: fixed;
-  margin-top: 76vh;
-  margin-left: 1.5rem;
-
+  margin-top: 20rem;
+  margin-left: 10px;
   opacity: 0.8;
   transition: opacity 0.3s ease; /* Agrega una transición suave a la opacidad */
 }
@@ -26,7 +25,7 @@
 .boton:active {
   opacity: 1;
 }
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .boton {
     margin-top: 65vh;
   }
@@ -40,4 +39,4 @@
   .boton {
     margin-top: 70vh;
   }
-}
+} */

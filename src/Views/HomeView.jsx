@@ -1,9 +1,10 @@
-import About from "../Components/About";
-import ContainerCards from "../Components/Cards/ContainerCards";
-import Home from "../Components/Home";
-import Contact from "../Components/Contact";
-import BotonWathsapp from "../Components/BotonWathsapp";
-import ProductsPage from "../Components/ProductsPage ";
+import About from '../Components/About'
+import ContainerCards from '../Components/Cards/ContainerCards'
+import Home from '../Components/Home'
+import Contact from '../Components/Contact'
+import BotonWathsapp from '../Components/BotonWathsapp'
+import ProductsPage from '../Components/ProductsPage '
+import '../Styles/Home.css'
 function HomeView() {
   return (
     <div className="containerhomes">
@@ -22,9 +23,11 @@ function HomeView() {
           <Contact />
         </div>
       </div>
-      <BotonWathsapp />
+      <div className="botonhomes">
+        <BotonWathsapp />
+      </div>
     </div>
-  );
+  )
 }
 
-export default HomeView;
+export default HomeView
