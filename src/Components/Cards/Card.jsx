@@ -1,12 +1,12 @@
 const Card = ({ product }) => {
   // Desestructurar la propiedad imagen del producto y acceder a la primera imagen
   const [firstImage] = product.imagen
-    .replace(/[{""}]/g, "")
-    .split(",")
-    .map((img) => img.trim());
+    .replace(/[{""}]/g, '')
+    .split(',')
+    .map(img => img.trim())
   return (
     <>
-      <article className="card">
+      <article className="card ">
         {firstImage && (
           <img src={firstImage} alt={product.nombre} className="card-image" />
         )}
@@ -17,7 +17,7 @@ const Card = ({ product }) => {
         </div>
       </article>
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
