@@ -1,10 +1,10 @@
-import "./App.css";
-import Navbar from "./Components/Navbar";
+import './App.css'
+import Navbar from './Components/Navbar'
 
-import { Route, Routes } from "react-router-dom";
-import HomeView from "./Views/HomeView";
-import Dashboard from "./Components/Dashboard";
-import ProductDetail from "./Components/ProducDetail/ProductDetail ";
+import { Route, Routes } from 'react-router-dom'
+import HomeView from './Views/HomeView'
+import Dashboard from './Components/Dashboard'
+import ProductDetail from './Components/ProducDetail/ProductDetail '
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
