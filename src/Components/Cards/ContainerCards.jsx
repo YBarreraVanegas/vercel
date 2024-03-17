@@ -22,7 +22,7 @@ const ContainerCards = () => {
         {Array.isArray(data) &&
           data.map(product => (
             <Link
-              to={`/product/${product.id}`}
+              to={`/products/${product.id}`}
               className="card-link"
               key={product.id}
             >
