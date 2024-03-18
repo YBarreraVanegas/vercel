@@ -3,6 +3,7 @@ import { useGetData } from '../useFetchs'
 import CardDetail from './CardDetail'
 import ContactDetail from './ContactDetail'
 import BotonWathsapp from '../BotonWathsapp'
+import Loader from '../Loader'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -11,7 +12,7 @@ const ProductDetail = () => {
   const { data, loading, error } = useGetData(url)
 
   if (loading) {
-    return <span className="loading">Cargando...</span>
+    return <Loader />
   }
 
   if (error) {

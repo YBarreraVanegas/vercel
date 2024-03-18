@@ -1,18 +1,19 @@
-import { useGetData } from "./useFetchs";
-import ProductCarousel from "./Carrusel";
-import "../Styles/Products.css";
+import { useGetData } from './useFetchs'
+import ProductCarousel from './Carrusel'
+import '../Styles/Products.css'
+import Loader from './Loader'
 
 const ProductsPage = () => {
-  const url = `${import.meta.env.VITE_URL}/products`;
+  const url = `${import.meta.env.VITE_URL}/products`
 
-  const { data, loading, error } = useGetData(url);
+  const { data, loading, error } = useGetData(url)
 
   if (loading) {
-    return <span className="loading">Cargando...</span>;
+    return <Loader />
   }
 
   if (error) {
-    return <span>Error: {error.message}</span>;
+    return <span>Error: {error.message}</span>
   }
 
   return (
@@ -20,7 +21,7 @@ const ProductsPage = () => {
       <h1 className="text-center">Coleccion</h1>
       {data && <ProductCarousel products={data} />}
     </div>
-  );
-};
+  )
+}
 
-export default ProductsPage;
+export default ProductsPage

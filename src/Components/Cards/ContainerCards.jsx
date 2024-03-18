@@ -3,12 +3,12 @@ import Card from './Card'
 import '../../Styles/Products.css'
 import { useGetData } from '../useFetchs'
 import { Link } from 'react-router-dom'
-
+import Loader from '../Loader'
 const ContainerCards = () => {
   const url = `${import.meta.env.VITE_URL}/products`
   const { data, loading, error } = useGetData(url)
   if (loading) {
-    return <span className="loading">Cargando...</span>
+    return <Loader />
   }
 
   if (error) {
