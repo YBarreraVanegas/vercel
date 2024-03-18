@@ -2,8 +2,8 @@
   width: auto;
   height: auto;
   position: fixed;
-  margin-top: 20rem;
-  margin-left: 10px;
+  bottom: 20px;
+  left: 20px;
   opacity: 0.8;
   transition: opacity 0.3s ease; /* Agrega una transición suave a la opacidad */
 }

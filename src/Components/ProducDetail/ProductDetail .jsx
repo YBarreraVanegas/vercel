@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useGetData } from '../useFetchs'
 import CardDetail from './CardDetail'
 import ContactDetail from './ContactDetail'
+import BotonWathsapp from '../BotonWathsapp'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -25,6 +26,7 @@ const ProductDetail = () => {
           <CardDetail product={data} />
         </div>
         <ContactDetail />
+        <BotonWathsapp />
       </div>
     )
   } else {
